@@ -9,9 +9,11 @@ Please fill in answers to the questions below:
 
 3. What's the URL of your git repo?
 	https://github.com/jchery25/CS5610
+	
+	URL Fork Git: https://github.com/jchery25/elixir-practice
 
 4. How much of the functionality did you complete?
-	Deployed onto server
+	Deployed onto server 
 	Application does not fully work
 
 5. Did you successfully deploy? If not, what's broken?
