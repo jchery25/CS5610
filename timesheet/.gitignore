@@ -38,6 +38,7 @@ npm-debug.log
 
 # Production env
 prod-env.sh
+./prod-env.sh
 
 # Config 
 config/prod.secret.exs
