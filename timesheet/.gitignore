@@ -37,8 +37,8 @@ npm-debug.log
 .DS_Store
 
 # Production env
-prod-env.sh
-./prod-env.sh
+# prod-env.sh
+#./prod-env.sh
 
 # Config 
-config/prod.secret.exs
+# config/prod.secret.exs
