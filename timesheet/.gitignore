@@ -35,10 +35,3 @@ npm-debug.log
 
 # Mac
 .DS_Store
-
-# Production env
- prod-env.sh
-./prod-env.sh
-
-# Config 
- config/prod.secret.exs
