@@ -6,7 +6,6 @@ defmodule Timesheet.Repo.Migrations.CreateUsers do
       add :email, :string, null: false
       add :name, :string, null: false
       add :isManager, :boolean, default: false
-      add :password, :string, null: false
 
       timestamps()
     end
