@@ -19,7 +19,7 @@ defmodule TimesheetWeb.UserController do
       {:ok, user} ->
         conn
         |> put_flash(:info, "User created successfully.")
-        |> redirect(to: Routes.user_path(conn, :show, user))
+        |> redirect(to: Routes.page_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -27,7 +27,8 @@ defmodule TimesheetWeb.UserController do
   end
 
   def show(conn, %{"id" => id}) do
-    user = Users.get_user!(id)
+    user = Users.get_user_with_tasks!(id)
+    # user = Users.get_user!(id)
     render(conn, "show.html", user: user)
   end
 

@@ -8,6 +8,24 @@ defmodule Timesheet.Users do
 
   alias Timesheet.Users.User
 
+  def get_user_by_email(email) do
+    Repo.get_by(User, email: email)
+  end
+
+  def authenticate(email, pass) do
+    user = Repo.get_by(User, email: email)
+    case Argon2.check_pass(user, pass) do
+      {:ok, user} -> user
+      _ -> nil
+    end
+  end
+
+  def get_user_with_tasks!(id) do
+    Repo.one from uu in User,
+      where: uu.id == ^id,
+      preload: [:tasks]
+  end
+
   @doc """
   Returns the list of users.
 
@@ -36,6 +54,9 @@ defmodule Timesheet.Users do
 
   """
   def get_user!(id), do: Repo.get!(User, id)
+
+  def get_user(id), do: Repo.get(User, id)
+
 
   @doc """
   Creates a user.
