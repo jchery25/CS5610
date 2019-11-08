@@ -9,8 +9,20 @@ defmodule Timesheet2Web.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
+  pipeline :ajax do
     plug :accepts, ["json"]
+    plug :fetch_session
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers
+  end
+
+  scope "/ajax", Timesheet2Web do
+    pipe_through :ajax
+
+    resources "/users", UserController, except: [:new, :edit]
+    resources "/tasks", TaskController, except: [:new, :edit]
+    resources "/jobs", JobController, except: [:new, :edit]
+    resources "/sessions", SessionController, only: [:create], singleton: true
   end
 
   scope "/", Timesheet2Web do
@@ -18,8 +30,9 @@ defmodule Timesheet2Web.Router do
 
     get "/", PageController, :index
     get "/*path", PageController, :index
-
   end
+
+
 
   # Other scopes may use custom stacks.
   # scope "/api", Timesheet2Web do
