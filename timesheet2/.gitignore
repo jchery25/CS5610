@@ -35,3 +35,6 @@ npm-debug.log
 
 #Secrets
 /config/prod.secret.exs
+
+#Production
+prod-env.sh
